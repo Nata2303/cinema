@@ -1,0 +1,62 @@
+:root{
+--text-color-one: #FFFFFF;
+--text-color-two: #111111;
+--text-color-three: #F87719;
+--background-color-one: #282828;
+--background-color-two: #595959;
+--background-color-three: #B7B7B7;
+--background-color-three: #F8F8F8;
+--background-gradient-one: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+--background-gradient-two: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16;
+    color: var(--text-color-one);
+    background-color: var(--text-color-two);
+}
+
+.ul {
+    margin: 0;
+    padding: 0;
+}
+
+.button{
+  cursor: pointer;
+}
+
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.card-film {
+    width: 280px;
+height: 406px;
+background: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 92.16%);
+}
+
+@media screen and (min-width: 768px){
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+}  
+.card-film {
+    width: 224px;
+height: 325px;
+}
+}
+
+@media screen and (min-width: 768px){
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+} 
+.card-film {
+    width: 394px;
+height: 574px;
+} 
+}
