@@ -31,6 +31,7 @@ body{
 .container {
     padding-left: 20px;
     padding-right: 20px;
+    width: 280px;
 }
 
 .card-film {
@@ -43,6 +44,8 @@ background: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 
   .container {
     padding-left: 20px;
     padding-right: 20px;
+    width: 704px;
+
 }  
 .card-film {
     width: 224px;
@@ -50,10 +53,11 @@ height: 325px;
 }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 1440px){
   .container {
     padding-left: 32px;
     padding-right: 32px;
+    width: 1216px;
 } 
 .card-film {
     width: 394px;
