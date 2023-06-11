@@ -1,0 +1,133 @@
+.container-n {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-main {
+    background: linear-gradient(86.77deg, #111111 0.38%, rgba(249, 245, 245, 0) 65.61%), url(../images/hero-static-bg-mobile1x.jpg);
+    background-repeat: no-repeat;
+    background-position: 80px 0;
+}
+
+.hero-title-static {
+    font-weight: 700;
+    display: block;
+font-size: 32px;
+line-height: 1.18;
+width: 199px;
+padding-top: 40px;
+}
+.hero-text-static {
+    margin-top: 8px;
+    font-weight: 400;
+font-size: 14px;
+line-height: 1.14;
+width: 166px;
+
+}
+.hero-btn-static {
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: none;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+border-radius: 74px;
+margin-bottom: 80px;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
+}
+
+.hero-btn-static-sec{
+    background: transparent;
+    color:#FFFFFF;
+    border: 1px solid #FFFFFF;
+    margin-top: 20px;
+    padding: 12px 24px;
+    border-radius: 74px;
+    font-size: 12px;
+line-height: 14px;
+margin-left: 4px;
+}
+
+
+.hero-text-film {
+    margin-top: 20px;
+    font-weight: 400;
+font-size: 14px;
+line-height: 1.14;
+width: 177px;
+margin-bottom: 0;
+}
+
+.hero-title-film {
+    font-weight: 700;
+    display: block;
+font-size: 32px;
+line-height: 1.18;
+width: 199px;
+padding-top: 40px;
+margin-bottom: 12px;
+}
+
+// Зірочки
+
+.rating {
+    display:flex;
+    align-items: flex-end;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 4px;
+}
+.rating-body {
+    position: relative;
+}
+
+.rating-body::before {
+    content: '★★★★★' ;
+    display: block;
+}
+
+.rating-active {
+    position: absolute;
+    width: 50%;
+    height: 120%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.rating-active::before {
+    content: '★★★★★' ;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+   color: #FFC226;
+ 
+
+}
+.rating-items {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+}
+.reting-item {
+    flex: 0 0 20%;
+    height: 100%;
+    opacity: 0;
+}
+.rating-value {
+  font-size: 50%;
+  line-height: 1;
+  padding-left: 10px;
+}
+
+
