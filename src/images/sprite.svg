@@ -2,4 +2,7 @@
   <symbol xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="close-outline">
     <path stroke="#282828" stroke-linecap="round" stroke-linejoin="round" d="M17.25 17.25 6.75 6.75m10.5 0-10.5 10.5"></path>
   </symbol>
+  <symbol id="close" viewBox="0 0 32 32">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.333" d="M23 23 9 9m14 0L9 23"/>
+  </symbol>
 </svg>
