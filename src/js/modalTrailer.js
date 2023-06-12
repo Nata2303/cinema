@@ -4,11 +4,11 @@ refs = {
 }
 
 
-
+const filmId = localStorage.getItem('filmIdstor')
 
 function fetchBreeds() {
   const url =
-    'https://api.themoviedb.org/3/movie/1010581/videos?language=en-US';
+    `https://api.themoviedb.org/3/movie/${filmId}/videos?language=en-US`;
   const options = {
     method: 'GET',
     headers: {
@@ -26,14 +26,15 @@ function fetchBreeds() {
       return response.json();
     })
     .catch(error => {
+      onFail()
       throw new Error('Failed to fetch breeds');
     });
 }
 
+setTimeout(fetchTrailerForTimeOut, 500)
 
+function fetchTrailerForTimeOut (){fetchBreeds().then(r => {return r.results[0]}).then(r => videoMaker(r))}
 
-
-fetchBreeds().then(r => {return r.results[0]}).then(r => videoMaker(r))
 
 function videoMaker (video) {
 
@@ -77,14 +78,39 @@ const videoIframe = document.createElement('iframe');
   
   
   
-console.log(videoIframe)
 refs.modalTrailer.innerHTML = '';
 
 refs.modalTrailer.appendChild(videoIframe);
 
 }
 
+
+function onFail () {
+  const openModalBtn = document.querySelector('.hero-btn-static');
+  const modal = document.getElementById('modal');
+  const closeModalBtn = modal.querySelector('.close');
+  // refs.modalTrailer.innerHTML = '<span class="close"></span><div class="modal-fail-box"><p class="modal-fail-text">OOPS...<br>We are very sorry!<br>But we couldn’t find the trailer.</p></div>'
+  function openModal() {
+    modal.style.display = 'block';
+  }
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+  openModalBtn.addEventListener('click', openModal);
+  closeModalBtn.addEventListener('click', closeModal);
+  window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+  
+}
+
+
+// <img class="modal-fail-img" src="./images/IMG_9881.png" alt="fail-trailer-search">
+
 // setTimeout(() => {
+  // 
 //   const openModalBtn = document.querySelector('.hero-btn-static');
 //   const modal = document.getElementById('modal');
 //   const closeModalBtn = modal.querySelector('.close');
