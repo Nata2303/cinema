@@ -50,7 +50,8 @@ h3 {
   color: var(--text-color-three);
 }
 
-.weekly-trends-section-link:hover, .weekly-trends-section-link:focus {
+.weekly-trends-section-link:hover,
+.weekly-trends-section-link:focus {
   color: rgba(248, 159, 25, 0.68);
 }
 
@@ -95,13 +96,21 @@ h3 {
   right: 12px;
 }
 
-.card-container{
+.card-container {
   position: relative;
   background: linear-gradient(
-180deg,
-rgba(0, 0, 0, 0) 63.48%,
-rgba(0, 0, 0, 0.9) 92.16%
-);
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+}
+
+.rating.weekly-trends-film-rating {
+  display: flex;
+  align-items: flex-end;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 4px;
 }
 
 @media screen and (min-width: 768px) {
@@ -109,6 +118,9 @@ rgba(0, 0, 0, 0.9) 92.16%
     width: 768px;
     padding-left: 32px;
     padding-right: 32px;
+  }
+  .weekly-trends-film-rating {
+    font-size: 10px;
   }
 }
 
@@ -118,17 +130,11 @@ rgba(0, 0, 0, 0.9) 92.16%
     padding-left: 32px;
     padding-right: 32px;
   }
+  .weekly-trends-film-rating {
+    font-size: 18px;
+  }
 }
 
-// Зірочки
-
-.rating.weekly-trends-film-rating {
-  display: flex;
-  align-items: flex-end;
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: 4px;
-}
 // .rating-body {
 //   position: relative;
 // }
@@ -175,9 +181,3 @@ rgba(0, 0, 0, 0.9) 92.16%
 //   line-height: 1;
 //   padding-left: 10px;
 // }
-
-@media screen and (min-width: 768px) {
-  .rating {
-    font-size: 20px;
-  }
-}
