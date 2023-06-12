@@ -11,6 +11,10 @@
 .menu,
 .logo-text {
     display: none;
+    list-style-type: none;
+}
+.menu li {
+    text-decoration: none;
 }
 
 .top {
