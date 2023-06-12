@@ -1,24 +1,26 @@
-import { api } from "./api";
+import { api } from './api';
 
 export async function upcomingMovieRequest() {
-    try {
-        const response = await api.get('/discover/movie?api_key=7f4ba582d55c3d33bf97672c5d45e075');
-        return response.data;
-    } catch (err) {
-        console.log(err);
-    }
+  try {
+    const response = await api.get(
+      '/movie/upcoming?api_key=7f4ba582d55c3d33bf97672c5d45e075'
+    );
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 export async function upcomingMovieGenreRequest() {
-    try {
-        const response = await api.get('/genre/movie/list?api_key=7f4ba582d55c3d33bf97672c5d45e075');
-        return response.data.genres;
-    } catch (err) {
-        console.log(err);
-    }
+  try {
+    const response = await api.get(
+      '/genre/movie/list?api_key=7f4ba582d55c3d33bf97672c5d45e075'
+    );
+    return response.data.genres;
+  } catch (err) {
+    console.log(err);
+  }
 }
-
-
 
 export function fetchBreeds() {
   const url =
