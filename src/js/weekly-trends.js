@@ -133,3 +133,11 @@ async function serviseGenre() {
     console.log(err);
   }
 }
+
+// const screenWidth = window.innerWidth;
+
+//     if (screenWidth >= 768) {
+
+//     } else {
+
+//     }
