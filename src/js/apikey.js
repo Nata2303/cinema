@@ -1,15 +1,15 @@
 import { api } from './api';
 
-export async function libraryMovieQuery(id) {
-  try {
-    const response = await api.get(
-      `/movie/${id}?api_key=7f4ba582d55c3d33bf97672c5d45e075`
-    );
-    return response.data;
-  } catch (err) {
-    console.log(err);
-  }
-}
+// export async function libraryMovieQuery(id) {
+//   try {
+//     const response = await api.get(
+//       `/movie/${id}?api_key=7f4ba582d55c3d33bf97672c5d45e075`
+//     );
+//     return response.data;
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
 
 export async function upcomingMovieRequest() {
   try {
