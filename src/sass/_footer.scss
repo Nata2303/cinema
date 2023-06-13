@@ -7,7 +7,7 @@
 
     @media screen and (min-width: 768px) {
         height: 199px;
-        padding-top: 100px;
+        padding-top: 77px;
         padding-bottom: 80px;
     }
 
@@ -68,5 +68,9 @@
     &__icon {
         margin-left: 10px;
         margin-right: 10px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        padding-top: 100px;
     }
 }
