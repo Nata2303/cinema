@@ -63,7 +63,7 @@ refs.sectionHero.style.backgroundPosition = 'center';
 
 
 
-retingInPercent = convertRatingToPercentage(film.vote_average);
+ const retingInPercent = convertRatingToPercentage(film.vote_average);
 // console.log(retingInPercent)
 filmIdTrailer = film.id;
 localStorage.removeItem('filmIdstor')

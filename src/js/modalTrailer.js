@@ -1,5 +1,5 @@
 
-refs = {
+const refs = {
   modalTrailer: document.querySelector('.modal-content')
 }
 
