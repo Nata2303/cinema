@@ -6,6 +6,7 @@ const upcomingBox = document.querySelector('.upcom-js-list');
 async function initUpcomingFetch() {
   try {
     let genres = {};
+
     const data = await upcomingMovieRequest();
     const genresData = await upcomingMovieGenreRequest();
 
@@ -13,10 +14,15 @@ async function initUpcomingFetch() {
       genres[genre.id] = genre.name;
     });
 
+    const randomData = Math.floor(Math.random() * data.results.length); 
+    const randomDataRes = data.results[randomData];
+
     upcomingBox.insertAdjacentHTML(
       'beforeend',
-      createUpcomingMarkup(data.results[0], genres)
+      createUpcomingMarkup(randomDataRes, genres)
     );
+
+    changeClick(randomDataRes.id);
   } catch (err) {
     console.log(err);
   }
@@ -35,7 +41,8 @@ function createUpcomingMarkup(arr, genres) {
     title,
     popularity,
   } = arr;
-  const genreNames = genre_ids.map(id => genres[id]);
+  const genreNames = genre_ids.slice(0, 2).map(genreId => genres[genreId]);
+
   return `<div class="upcoming-container">
         <img src="https://image.tmdb.org/t/p/original${backdrop_path}" alt="${title}" class="upcom-img" /> 
         <div class="upcoming-container-about">
@@ -51,7 +58,7 @@ function createUpcomingMarkup(arr, genres) {
                     </li>
                     <li class="upcoming-list-item">
                         <p class="upcom-movie-subtitle">Popularity</p>
-                        <p class="upcom-popularity">${popularity}</p>
+                        <p class="upcom-popularity popular">${popularity.toFixed(1)}</p>
                     </li>
                     <li class="upcoming-list-item">
                         <p class="upcom-movie-subtitle">Genre</p>
@@ -60,7 +67,27 @@ function createUpcomingMarkup(arr, genres) {
                 </ul>
                 <p class="upcom-movie-about-title">ABOUT</p>
                 <p class="upcom-movie-about">${overview}</p>
-                <button type="button" class="upcom-btn">Add to my library</button>
+                <button type="button" class="upcom-btn isActive">Add to my library</button>
             </div>
       </div>`;
+}
+
+function changeClick(id) {
+  const upcomingBtn = document.querySelector('.upcom-btn');
+
+  upcomingBtn.addEventListener('click', () => {
+    
+    if (upcomingBtn.classList.contains('isActive')) {
+      upcomingBtn.classList.remove('isActive');
+      upcomingBtn.textContent = "Remove from my library";
+      
+      localStorage.setItem('movieId', id);
+      console.log('Movie ID added to localStorage:', id);
+    } else {
+      upcomingBtn.classList.add('isActive');
+      localStorage.removeItem('movieId', id);
+      upcomingBtn.textContent = "Add to my library";
+      console.log('Movie ID removed to localStorage:', id);
+    }
+  });
 }

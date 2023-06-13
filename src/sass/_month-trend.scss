@@ -10,6 +10,8 @@
 @media screen and (min-width: 768px) {
   .month {
     max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
     padding-top: 44px;
   }
 }
@@ -161,11 +163,11 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .upcoming-list-item:not(:nth-child(2)) {
-    margin-right: 122px;
+  .upcoming-list-item:nth-child(1) {
+    margin-right: 131px;
   }
-  .upcoming-list-item:not(:nth-child(3)) {
-    margin-right: 107px;
+  .upcoming-list-item:nth-child(3) {
+    margin-right: 115px;
   }
 }
 
@@ -228,7 +230,8 @@
   line-height: 1.19;
   margin-top: 0;
   margin-bottom: 12px;
-  margin-left: 72px;
+  margin-left: 76px;
+  width: 100px;
 
   color: #ffffff;
 }
@@ -239,7 +242,7 @@
   font-size: 16px;
   line-height: 1.19;
   margin-top: 0;
-  margin-left: 100px;
+  margin-left: 107px;
 
   color: #ffffff;
 }
@@ -253,6 +256,7 @@
   line-height: 1.43;
   margin-top: 16px;
   margin-bottom: 20px;
+
   color: #f8f8f8;
 }
 
