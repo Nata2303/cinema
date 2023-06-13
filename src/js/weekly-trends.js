@@ -41,7 +41,6 @@ serviseFilm().then(data => {
     film;
 
   const ratingInPercent = convertRatingToPercentage(vote_average);
-  console.log(ratingInPercent);
 
   serviseGenre()
     .then(genresData => {
@@ -89,8 +88,6 @@ serviseFilm().then(data => {
     const genre_ids2 = film2.genre_ids;
 
     const ratingInPercent2 = convertRatingToPercentage(vote_average2);
-
-    console.log(ratingInPercent2);
 
     serviseGenre()
       .then(genresData => {
@@ -140,7 +137,6 @@ serviseFilm().then(data => {
     const genre_ids3 = film3.genre_ids;
 
     const ratingInPercent3 = convertRatingToPercentage(vote_average3);
-    console.log(ratingInPercent3);
 
     serviseGenre()
       .then(genresData => {
