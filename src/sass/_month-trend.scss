@@ -23,20 +23,19 @@
   }
 }
 
-.upcoming-container {
-  padding-bottom: 40px;
-}
+// .upcoming-container {
+//   padding-bottom: 40px;
+// }
 
-@media screen and (min-width: 768px) {
-  .upcoming-container {
-    padding-bottom: 77px;
-  }
-}
+// @media screen and (min-width: 768px) {
+//   .upcoming-container {
+//     padding-bottom: 77px;
+//   }
+// }
 
 @media screen and (min-width: 1280px) {
   .upcoming-container {
     display: flex;
-    padding-bottom: 100px;
   }
 }
 
