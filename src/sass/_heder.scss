@@ -1,7 +1,7 @@
 /* ------------ MOBILE ------------ */
-.a {
-    text-decoration: none;
-}
+// a {
+//     text-decoration: none;
+// }
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -90,6 +90,9 @@
     padding-left: 20px;
     overflow-y: auto;
 }
+.menu-mob {
+    list-style-type: none;
+}
 
 .is-visible {
     display: block;
@@ -158,7 +161,7 @@
         align-items: center;
         text-align: center;
         margin-right: 59px;
-        color: #F87719;
+        color: #FFFFFF;
     }
 
     .switch_theme {
@@ -204,4 +207,8 @@
 
 .light-theme .current {
     color:#F87719;
+}
+a {
+    text-decoration: none;
+    color: #FFFFFF;
 }
