@@ -40,8 +40,8 @@ serviseFilm().then(data => {
   const { id, title, poster_path, release_date, vote_average, genre_ids } =
     film;
 
-  const ratindg = document.querySelector('.rating-active');
-  ratingInPercent = convertRatingToPercentage(vote_average);
+  const ratingInPercent = convertRatingToPercentage(vote_average);
+  console.log(ratingInPercent);
 
   serviseGenre()
     .then(genresData => {
@@ -88,8 +88,9 @@ serviseFilm().then(data => {
     const vote_average2 = film2.vote_average;
     const genre_ids2 = film2.genre_ids;
 
-    let ratindg = document.querySelector('.rating-active');
-    ratingInPercent = convertRatingToPercentage(vote_average2);
+    const ratingInPercent2 = convertRatingToPercentage(vote_average2);
+
+    console.log(ratingInPercent2);
 
     serviseGenre()
       .then(genresData => {
@@ -113,7 +114,7 @@ serviseFilm().then(data => {
       <span>|</span>
       <span>${date.getFullYear(release_date2)}</span></div></div>
       <div class="rating weekly-trends-film-rating"><div class="rating-body">
-      <div class="rating-active" style="width: ${ratingInPercent}%;"></div>
+      <div class="rating-active" style="width: ${ratingInPercent2}%;"></div>
       <div class="rating-items">
             <input type="radio" class="reting-item" value="1" name="rating"></>
             <input type="radio" class="reting-item" value="2" name="rating"></>
@@ -138,8 +139,8 @@ serviseFilm().then(data => {
     const vote_average3 = film3.vote_average;
     const genre_ids3 = film3.genre_ids;
 
-    ratindg = document.querySelector('.rating-active');
-    ratingInPercent = convertRatingToPercentage(vote_average3);
+    const ratingInPercent3 = convertRatingToPercentage(vote_average3);
+    console.log(ratingInPercent3);
 
     serviseGenre()
       .then(genresData => {
@@ -163,7 +164,7 @@ serviseFilm().then(data => {
       <span>|</span>
       <span>${date.getFullYear(release_date3)}</span></div></div>
       <div class="rating weekly-trends-film-rating"><div class="rating-body">
-      <div class="rating-active" style="width: ${ratingInPercent}%;"></div>
+      <div class="rating-active" style="width: ${ratingInPercent3}%;"></div>
       <div class="rating-items">
             <input type="radio" class="reting-item" value="1" name="rating"></>
             <input type="radio" class="reting-item" value="2" name="rating"></>
