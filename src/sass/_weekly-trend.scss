@@ -66,6 +66,15 @@ h3 {
   border-radius: 5px;
 }
 
+.card-container {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+}
+
 .film-info-poster {
   position: absolute;
   bottom: 12px;
@@ -96,15 +105,6 @@ h3 {
 }
 
 .card-film {
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 63.48%,
-    rgba(0, 0, 0, 0.9) 92.16%
-  );
-}
-
-.card-container {
-  position: relative;
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 63.48%,
@@ -196,6 +196,10 @@ h3 {
 
   .weekly-trends-film-rating {
     font-size: 18px;
+  }
+
+  .weekly-trends-card-list{
+    gap: 15px;
   }
 }
 
