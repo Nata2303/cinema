@@ -19,7 +19,6 @@ h3 {
 
 .weekly-trends-section {
   margin-top: 40px;
-  margin-bottom: 32px;
 }
 
 .weekly-trends-container {
@@ -96,6 +95,14 @@ h3 {
   right: 12px;
 }
 
+.card-film {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 63.48%,
+    rgba(0, 0, 0, 0.9) 92.16%
+  );
+}
+
 .card-container {
   position: relative;
   background: linear-gradient(
@@ -114,22 +121,79 @@ h3 {
 }
 
 @media screen and (min-width: 768px) {
+  .weekly-trends-section {
+    margin-top: 52px;
+  }
   .weekly-trends-container {
-    width: 768px;
+    width: 100%;
     padding-left: 32px;
     padding-right: 32px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
+
+  .weekly-trends-section-title {
+    font-size: 24px;
+    line-height: 1.17;
+  }
+
+  .weekly-trends-section-link {
+    font-size: 24px;
+    line-height: 1.17;
+  }
+
+  .weekly-trends-film-img {
+    width: 224px;
+    height: 325px;
+  }
+
+  .weekly-trends-film-title {
+    line-height: 1.5;
+  }
+
+  .weekly-trends-info {
+    line-height: 1.5;
+  }
+
   .weekly-trends-film-rating {
     font-size: 10px;
+  }
+  .weekly-trends-card-list {
+    display: flex;
+    gap: 16px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .weekly-trends-container {
-    width: 1280px;
-    padding-left: 32px;
-    padding-right: 32px;
+  .weekly-trends-section {
+    margin-top: 80px;
   }
+
+  .weekly-trends-section-title {
+    font-size: 28px;
+    line-height: 1.18;
+  }
+
+  .weekly-trends-section-link {
+    font-size: 28px;
+    line-height: 1.18;
+  }
+
+  .weekly-trends-film-img {
+    width: 395px;
+    height: 574px;
+  }
+
+  .weekly-trends-film-title {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  .weekly-trends-info {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
   .weekly-trends-film-rating {
     font-size: 18px;
   }
