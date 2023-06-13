@@ -1,4 +1,7 @@
 /* ------------ MOBILE ------------ */
+.a {
+    text-decoration: none;
+}
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -12,10 +15,11 @@
 .logo-text {
     display: none;
     list-style-type: none;
+    color: #FFFFFF;
 }
-.menu li {
-    text-decoration: none;
-}
+// .menu li {
+//     text-decoration: none;
+// }
 
 .top {
     position: relative;
@@ -44,6 +48,7 @@
     text-align: center;
     text-transform: uppercase;
     color: #595959;
+    text-decoration: none;
 }
 
 .is-hidden-menu {
