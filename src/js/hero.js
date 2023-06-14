@@ -34,11 +34,12 @@ const refs = {
 function heroFilm(){
    return fetchBreeds().then(r => {
     // console.log(r.results[2]) ;
-     return r.results[1] }).then(r=> {return cardMaker(r); }).then(() => {setTimeout(onTimeOut,700)})
+     return r.results[2] }).then(r=> {return cardMaker(r); })
+    //  .then(() => {setTimeout(onTimeOut,700)})
     //  then(r=> console.log(r));
 }
 
-heroFilm().then(() => console.log(filmIdTrailer))
+heroFilm()
 
 function cardMaker (film) {
     
@@ -65,7 +66,7 @@ refs.sectionHero.style.backgroundPosition = 'center';
 
  const retingInPercent = convertRatingToPercentage(film.vote_average);
 // console.log(retingInPercent)
-filmIdTrailer = film.id;
+let filmIdTrailer = film.id;
 localStorage.removeItem('filmIdstor')
 localStorage.setItem('filmIdstor', `${filmIdTrailer}`)
 
@@ -143,10 +144,10 @@ function convertRatingToPercentage(rating) {
   }
   
 
- function onTimeOut(){
-    console.log(filmIdTrailer)
+//  function onTimeOut(){
+//     console.log(filmIdTrailer)
     
- }
+//  }
 
 
 //  =======Фільм Трейлер========

@@ -4,8 +4,8 @@ const refs = {
 }
 
 
-const filmId = localStorage.getItem('filmIdstor')
-
+const filmId = localStorage.getItem('filmIdstor');
+console.log(filmId)
 function fetchBreeds() {
   const url =
     `https://api.themoviedb.org/3/movie/${filmId}/videos?language=en-US`;
