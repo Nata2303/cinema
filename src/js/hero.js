@@ -34,7 +34,7 @@ const refs = {
 function heroFilm(){
    return fetchBreeds().then(r => {
     // console.log(r.results[2]) ;
-     return r.results[3] }).then(r=> {return cardMaker(r); }).then(() => {setTimeout(onTimeOut,700)})
+     return r.results[1] }).then(r=> {return cardMaker(r); }).then(() => {setTimeout(onTimeOut,700)})
     //  then(r=> console.log(r));
 }
 
@@ -63,10 +63,11 @@ refs.sectionHero.style.backgroundPosition = 'center';
 
 
 
-retingInPercent = convertRatingToPercentage(film.vote_average);
+ const retingInPercent = convertRatingToPercentage(film.vote_average);
 // console.log(retingInPercent)
 filmIdTrailer = film.id;
-
+localStorage.removeItem('filmIdstor')
+localStorage.setItem('filmIdstor', `${filmIdTrailer}`)
 
 const filmText =  truncateText(film.overview) ;
 
