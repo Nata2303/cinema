@@ -27,11 +27,10 @@ function createLibraryMarkup(arr) {
     
        return arr.map((movie) => {
             const { release_date, backdrop_path, genres, title, vote_average } = movie;
-            const genreSliced = genres.slice(0, 2);
+            const genreSliced = genres.slice(0, 1);
             const genreName = genreSliced.map(genre => genre.name).join(", ");
-            console.log(genreName);
-
-            return `<div class="library-container">
+         
+            return `<div class="library-container-item">
                 <div class="library-container-img" style="background-image: url(https://image.tmdb.org/t/p/original${backdrop_path});">
                 <div class="rating-libr rating-library">
                         <div class="rating-body">
