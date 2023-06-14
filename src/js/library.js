@@ -1,8 +1,8 @@
-import { api } from './api';
 import { libraryMovieQuery } from './apikey';
 
 const libraryBox = document.querySelector('.library-js-list');
 const localStorageId = JSON.parse(localStorage.getItem('movieIds'));
+
 
 async function initLibraryFetch() {
   try {      
@@ -12,7 +12,7 @@ async function initLibraryFetch() {
     const data = await libraryMovieQuery(localStorageId);
 
     console.log(data);
-      libraryBox.insertAdjacentHTML('beforeend', createLibraryMarkup(data));
+    libraryBox.insertAdjacentHTML('beforeend', createLibraryMarkup(data));
 
   } catch (err) {
     console.log(err);
@@ -88,3 +88,4 @@ function convertRatingToPercentage(rating) {
 
   return roundedPercentage;
 }
+

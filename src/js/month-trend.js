@@ -17,6 +17,8 @@ async function initUpcomingFetch() {
     const randomData = Math.floor(Math.random() * data.results.length); 
     const randomDataRes = data.results[randomData];
 
+    console.log(randomDataRes);
+
     upcomingBox.insertAdjacentHTML(
       'beforeend',
       createUpcomingMarkup(randomDataRes, genres)

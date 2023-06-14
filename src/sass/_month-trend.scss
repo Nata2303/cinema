@@ -59,7 +59,6 @@
 }
 
 .month-trend-title {
-  font-family: 'Roboto';
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
@@ -83,7 +82,6 @@
 }
 
 .upcom-movie-title {
-  font-family: 'Roboto';
   font-weight: 500;
   font-size: 20px;
   line-height: 1.15;
@@ -112,7 +110,6 @@
 }
 
 .upcom-movie-subtitle {
-  font-family: 'Roboto';
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
@@ -122,9 +119,7 @@
   color: #b7b7b7;
 }
 
-.upcom-movie-about-title {
-  font-family: 'Roboto';
-  font-style: normal;
+.upcom-movie-about-title {  
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
@@ -175,8 +170,7 @@
   }
 }
 
-.upcom-release-date {
-  font-family: 'Roboto';
+.upcom-release-date {  
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
@@ -190,7 +184,6 @@
 .upcom-vote {
   display: flex;
   flex-wrap: wrap;
-  font-family: 'Roboto';
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -212,8 +205,7 @@
   color: #f8f8f8;
 }
 
-.upcom-popularity {
-  font-family: 'Roboto';
+.upcom-popularity {  
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
@@ -225,8 +217,7 @@
   color: #ffffff;
 }
 
-.upcom-genre {
-  font-family: 'Roboto';
+.upcom-genre { 
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
@@ -236,8 +227,7 @@
   color: #ffffff;
 }
 
-.upcom-movie-about {
-  font-family: 'Roboto';
+.upcom-movie-about { 
   font-weight: 400;
   font-size: 14px;
   margin-top: 0;
@@ -254,11 +244,10 @@
   border-radius: 74px;
   text-align: center;
   padding: 12px 24px;
-
-  font-family: 'Roboto';
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
+  border: none;
 
   color: #111111;
 }

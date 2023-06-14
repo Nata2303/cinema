@@ -11,6 +11,7 @@ export async function libraryMovieQuery(localStorageId) {
     const data = responses.map(response => response.data);
     return data;
     // return response.data;
+
   } catch (err) {
     console.log(err);
   }
