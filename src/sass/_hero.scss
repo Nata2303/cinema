@@ -66,18 +66,33 @@ text-decoration: none;
 display: block;
 }
 
+.hero-link-static:hover {
+    color: rgb(255, 179, 38);
+    background: transparent;
+    border: 1px solid rgb(255, 179, 38) ;
+    padding: 11px 23px;
+}
+
 
 
 .hero-btn-static {
     margin-top: 20px;
     padding: 12px 24px;
-    border: none;
+    border: 1px solid transparent;
     background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
 border-radius: 74px;
 margin-bottom: 80px;
 font-weight: 500;
 font-size: 12px;
 line-height: 14px;
+
+}
+
+.hero-btn-static:hover {
+    color: rgb(255, 179, 38);
+    background: transparent;
+    border: 1px solid rgb(255, 179, 38) ;
+    padding: 11px 23px;
 }
 
 .pb-hr-box {
@@ -89,7 +104,7 @@ line-height: 14px;
 .hero-btn-static-sec{
     background: transparent;
     color:#FFFFFF;
-    border: 1px solid #FFFFFF;
+    border: 1px solid rgb(255, 179, 38);
     margin-top: 20px;
     padding: 12px 24px;
     border-radius: 74px;
@@ -98,6 +113,10 @@ line-height: 14px;
 margin-left: 8px;
 }
 
+
+.hero-btn-static-sec:hover {
+color:rgb(255, 179, 38) ;
+}
 
 .hero-text-film {
     margin-top: 20px;
@@ -116,6 +135,7 @@ line-height: 1.18;
 width: 199px;
 padding-top: 40px;
 margin-bottom: 12px;
+margin-top: 0;
 }
 
 .you-tube-iframe {
