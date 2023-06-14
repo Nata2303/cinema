@@ -44,12 +44,19 @@ const openModalBtn = document.querySelector('.hero-btn-static');
   const closeModalBtn = modal.querySelector('.close');
   
   // Функція для відкриття модального вікна
+
+  let videoIframe;
+
   function openModal() {
     modal.style.display = 'block';
+    videoIframe.src = `https://www.youtube.com/embed/${videoKey}`;
   }
   
   // Функція для закриття модального вікна
   function closeModal() {
+    
+    videoIframe.src = ''; // Очищуємо посилання на відео
+    videoIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*'); // Зупиняємо відтворення відео
     modal.style.display = 'none';
   }
   
@@ -58,6 +65,7 @@ const openModalBtn = document.querySelector('.hero-btn-static');
   closeModalBtn.addEventListener('click', closeModal);
   window.addEventListener('click', function (event) {
     if (event.target === modal) {
+      videoIframe.src = '';
       closeModal();
     }
   });
@@ -71,8 +79,8 @@ const openModalBtn = document.querySelector('.hero-btn-static');
 const videoKey = video.key;
 console.log(videoKey)
 
-const videoIframe = document.createElement('iframe');
-  videoIframe.src = `https://www.youtube.com/embed/${videoKey}`;
+videoIframe = document.createElement('iframe');
+  // videoIframe.src = `https://www.youtube.com/embed/${videoKey}`;
   videoIframe.allowFullscreen = true;
   videoIframe.classList.add('you-tube-iframe')
   
@@ -94,6 +102,7 @@ function onFail () {
     modal.style.display = 'block';
   }
   function closeModal() {
+    videoIframe.src = '';
     modal.style.display = 'none';
   }
   openModalBtn.addEventListener('click', openModal);
