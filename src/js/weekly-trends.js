@@ -35,7 +35,6 @@ const list = document.querySelector('.weekly-trends-card-list');
 const ratindg = document.querySelector('.rating-active');
 
 serviseFilm().then(data => {
-  // console.log(data.results);
   const film = data.results[8];
   const { id, title, poster_path, release_date, vote_average, genre_ids } =
     film;
@@ -124,8 +123,6 @@ serviseFilm().then(data => {
     </div>
     </li>`;
     list.insertAdjacentHTML('beforeend', markup2);
-    // list.insertAdjacentHTML('beforeend', markup);
-    // list.innerHTML = markup2;
 
     const film3 = data.results[2];
 
