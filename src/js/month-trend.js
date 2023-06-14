@@ -81,11 +81,24 @@ function changeClick(id) {
       upcomingBtn.classList.remove('isActive');
       upcomingBtn.textContent = "Remove from my library";
       
-      localStorage.setItem('movieId', id);
+      const movieIds = JSON.parse(localStorage.getItem('movieIds')) || [];
+      if (!movieIds.includes(id)) { // проверяем, есть ли id фильма уже в массиве
+        movieIds.push(id);
+        localStorage.setItem('movieIds', JSON.stringify(movieIds)); // сохраняем обновленный массив в localStorage
+      }
+
+      // localStorage.setItem('movieId', id);
       console.log('Movie ID added to localStorage:', id);
     } else {
       upcomingBtn.classList.add('isActive');
-      localStorage.removeItem('movieId', id);
+      const movieIds = JSON.parse(localStorage.getItem('movieIds')) || [];
+      const index = movieIds.indexOf(id);
+      if (index !== -1) { // проверяем, есть ли id фильма в массиве
+        movieIds.splice(index, 1); // удаляем id фильма из массива
+        localStorage.setItem('movieIds', JSON.stringify(movieIds)); // сохраняем обновленный массив в localStorage
+      }
+
+      // localStorage.removeItem('movieId', id);
       upcomingBtn.textContent = "Add to my library";
       console.log('Movie ID removed to localStorage:', id);
     }
