@@ -48,27 +48,27 @@ function createUpcomingMarkup(arr, genres) {
   return `<div class="upcoming-container">
         <img src="https://image.tmdb.org/t/p/original${backdrop_path}" alt="${title}" class="upcom-img" /> 
         <div class="upcoming-container-about">
-            <h3 class="upcom-movie-title light-theme">${title}</h3>
+            <h3 class="upcom-movie-title color">${title}</h3>
                 <ul class="upcoming-list">
                     <li class="upcoming-list-item">
-                        <p class="upcom-movie-subtitle light-theme">Release date</p>
+                        <p class="upcom-movie-subtitle color">Release date</p>
                         <p class="upcom-release-date ">${release_date}</p>
                     </li>
                     <li class="upcoming-list-item">
-                        <p class="upcom-movie-subtitle light-theme">Vote / Votes</p>
+                        <p class="upcom-movie-subtitle color">Vote / Votes</p>
                         <p class="upcom-vote"><span class="vote-span">${vote_average}</span> <span class="slash">&nbsp/&nbsp</span> <span class="vote-span">${vote_count}</span></p>
                     </li>
                     <li class="upcoming-list-item">
-                        <p class="upcom-movie-subtitle light-theme">Popularity</p>
-                        <p class="upcom-popularity popular light-theme">${popularity.toFixed(1)}</p>
+                        <p class="upcom-movie-subtitle color">Popularity</p>
+                        <p class="upcom-popularity popular color">${popularity.toFixed(1)}</p>
                     </li>
                     <li class="upcoming-list-item">
-                        <p class="upcom-movie-subtitle light-theme">Genre</p>
-                        <p class="upcom-genre light-theme">${genreNames}</p>
+                        <p class="upcom-movie-subtitle color">Genre</p>
+                        <p class="upcom-genre color">${genreNames}</p>
                     </li>
                 </ul>
-                <p class="upcom-movie-about-title light-theme">ABOUT</p>
-                <p class="light-theme upcom-movie-about">${overview}</p>
+                <p class="upcom-movie-about-title color">ABOUT</p>
+                <p class="color upcom-movie-about">${overview}</p>
                 <button type="button" class="upcom-btn isActive">Add to my library</button>
             </div>
       </div>`;
