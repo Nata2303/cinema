@@ -23,7 +23,7 @@ function serviceArrPagination(arr) {
 
 function btnMarkup() {
   if (localStorageArr.length > 1) {
-    return `<button type="button" class="loadMore">Load more</button>`;
+    return `<button type="button" class="loadMore loadMoreStyle">Load more</button>`;
   } else {
   }
 }
