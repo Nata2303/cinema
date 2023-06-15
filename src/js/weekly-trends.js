@@ -35,7 +35,7 @@ const list = document.querySelector('.weekly-trends-card-list');
 const ratindg = document.querySelector('.rating-active');
 
 serviseFilm().then(data => {
-  const film = data.results[8];
+  const film = data.results[0];
   const { id, title, poster_path, release_date, vote_average, genre_ids } =
     film;
 
@@ -57,6 +57,7 @@ serviseFilm().then(data => {
 
   const markup = `<li class="card-film"><div class="card-container">
   <img src = "https://image.tmdb.org/t/p/w500${poster_path}" alt = "${title}" class="weekly-trends-film-img">
+  <div class="wt-gradient"></div>
   <div class="film-info-poster">
   <h3 class="weekly-trends-film-title">${title}</h3><div class="weekly-trends-info">
   <span class="genre">${hewgGenreNames}</span>
@@ -78,7 +79,7 @@ serviseFilm().then(data => {
   list.insertAdjacentHTML('beforeend', markup);
 
   if (screenWidth >= 768) {
-    const film2 = data.results[12];
+    const film2 = data.results[2];
     const id2 = film2.id;
     const title2 = film2.title;
     const poster_path2 = film2.poster_path;
@@ -104,6 +105,7 @@ serviseFilm().then(data => {
 
     const markup2 = `<li class="card-film"><div class="card-container">
       <img src = "https://image.tmdb.org/t/p/w500${poster_path2}" alt = "${title2}" class="weekly-trends-film-img">
+      <div class="wt-gradient"></div>
       <div class="film-info-poster">
       <h3 class="weekly-trends-film-title">${title2}</h3><div class="weekly-trends-info">
       <span class="genre2">${hewgGenreNames2}</span>
@@ -124,7 +126,7 @@ serviseFilm().then(data => {
     </li>`;
     list.insertAdjacentHTML('beforeend', markup2);
 
-    const film3 = data.results[2];
+    const film3 = data.results[6];
 
     const id3 = film3.id;
     const title3 = film3.title;
@@ -151,6 +153,7 @@ serviseFilm().then(data => {
 
     const markup3 = `<li class="card-film"><div class="card-container">
       <img src = "https://image.tmdb.org/t/p/w500${poster_path3}" alt = "${title3}" class="weekly-trends-film-img">
+      <div class="wt-gradient"></div>
       <div class="film-info-poster">
       <h3 class="weekly-trends-film-title">${title3}</h3><div class="weekly-trends-info">
       <span class="genre3">${hewgGenreNames3}</span>
