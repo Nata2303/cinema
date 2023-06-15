@@ -1,3 +1,6 @@
+import { libraryMovieQuery } from './apikey';
+import * as basicLightbox from 'basiclightbox';
+import Notiflix from 'notiflix';
 
 function searchPoster(data) {
     if (data.poster_path) {
@@ -14,8 +17,7 @@ function searchPoster(data) {
   }
   
   /*---------------------Створює розмітку модалки з інформацією---------------------*/
-
-  export function renderModalFilmMarkup(data) {
+function renderModalFilmMarkup(data) {
     const genreList = data.genres.map(genre => genre.name).slice(0, 2).join(', ');
     const vote = data.vote_average.toFixed(1);
     const popularity = data.popularity.toFixed(1);
@@ -48,7 +50,70 @@ function searchPoster(data) {
       </div>
      <p class=" about-tittle">About </p>
      <p class="about-film-story ">${data.overview} </p>
-     <button class=" button btn-border-dark add-film-btn">Add to my library</button>
+     <button class="button btn-border-dark add-film-btn">Add to my library</button>
      </div>
     </div>`;
   }
+
+let instance;
+const bodyElement = document.querySelector('body');
+
+//============================================================================
+function normalizeData(data) {
+  const genreIds = data.genres.map(el => el.id)
+  data.genre_ids = genreIds;
+}
+
+/*--------------отримує і відображає фільм в модальному вікні----------------*/
+export async function getMovie(movie_id) {
+
+  bodyElement.style.overflow = 'hidden';
+
+  try {
+    const data = await libraryMovieQuery(movie_id);
+    normalizeData(data);
+
+    const markup = renderModalFilmMarkup(data);
+
+    instance = basicLightbox.create(markup, {
+      closable: true,
+      onShow: instance => {
+        instance.element().querySelector('.modal-close-btn')
+          .addEventListener('click', () => {
+            instance.close();
+            bodyElement.style.overflow = 'auto';
+          });
+        document.addEventListener('keydown', closeModalOnKey);
+      },
+      onClose: instance => {
+        instance.element().querySelector('.modal-close-btn')
+          .removeEventListener('click', () => {
+             instance.close();
+              bodyElement.style.overflow = 'auto';
+          });
+        document.removeEventListener('keydown', closeModalOnKey);
+        bodyElement.style.overflow = 'auto';
+      },
+      onOverlayClick: () => {
+        closeModal()
+      },
+    });
+    instance.show();
+  } catch (error) {
+  Notiflix.Notify.failure("Sorry, the movie is not found ");
+   console.log('Помилка отримання даних:', error);
+  }
+}
+
+function closeModal() {
+  instance.close();
+  bodyElement.style.overflow = 'auto';
+}
+function closeModalOnKey(e) {
+  if (e.code !== 'Escape') return;
+  instance.close();
+  bodyElement.style.overflow = 'auto';
+  document.removeEventListener('keydown', closeModalOnKey);
+}
+
+
