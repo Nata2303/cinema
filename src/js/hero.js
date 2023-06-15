@@ -2,7 +2,7 @@
 
 function fetchBreeds() {
     const url =
-      'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
+      'https://api.themoviedb.org/33/trending/movie/day?language=en-US';
     const options = {
       method: 'GET',
       headers: {
