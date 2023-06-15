@@ -14,7 +14,7 @@ async function initUpcomingFetch() {
       genres[genre.id] = genre.name;
     });
 
-    const randomData = Math.floor(Math.random() * data.results.length); 
+    const randomData = Math.floor(Math.random() * data.results.length);
     const randomDataRes = data.results[randomData];
 
     console.log(randomDataRes);
@@ -43,7 +43,10 @@ function createUpcomingMarkup(arr, genres) {
     title,
     popularity,
   } = arr;
-  const genreNames = genre_ids.slice(0, 2).map(genreId => genres[genreId]).join(', ');
+  const genreNames = genre_ids
+    .slice(0, 2)
+    .map(genreId => genres[genreId])
+    .join(', ');
 
   return `<div class="upcoming-container">
         <img src="https://image.tmdb.org/t/p/original${backdrop_path}" alt="${title}" class="upcom-img" /> 
@@ -60,7 +63,9 @@ function createUpcomingMarkup(arr, genres) {
                     </li>
                     <li class="upcoming-list-item">
                         <p class="upcom-movie-subtitle color">Popularity</p>
-                        <p class="upcom-popularity popular color">${popularity.toFixed(1)}</p>
+                        <p class="upcom-popularity popular color">${popularity.toFixed(
+                          1
+                        )}</p>
                     </li>
                     <li class="upcoming-list-item">
                         <p class="upcom-movie-subtitle color">Genre</p>
@@ -78,30 +83,29 @@ function changeClick(id) {
   const upcomingBtn = document.querySelector('.upcom-btn');
 
   upcomingBtn.addEventListener('click', () => {
-    
     if (upcomingBtn.classList.contains('isActive')) {
       upcomingBtn.classList.remove('isActive');
-      upcomingBtn.textContent = "Remove from my library";
-      
+      upcomingBtn.textContent = 'Remove from my library';
+
       const movieIds = JSON.parse(localStorage.getItem('movieIds')) || [];
-      if (!movieIds.includes(id)) { // проверяем, есть ли id фильма уже в массиве
+      if (!movieIds.includes(id)) {
+        // проверяем, есть ли id фильма уже в массиве
         movieIds.push(id);
-        localStorage.setItem('movieIds', JSON.stringify(movieIds)); // сохраняем обновленный массив в localStorage
+        localStorage.setItem('movieIds', JSON.stringify(movieIds));
       }
 
-      // localStorage.setItem('movieId', id);
       console.log('Movie ID added to localStorage:', id);
     } else {
       upcomingBtn.classList.add('isActive');
       const movieIds = JSON.parse(localStorage.getItem('movieIds')) || [];
       const index = movieIds.indexOf(id);
-      if (index !== -1) { // проверяем, есть ли id фильма в массиве
+      if (index !== -1) {
+        // проверяем, есть ли id фильма в массиве
         movieIds.splice(index, 1); // удаляем id фильма из массива
-        localStorage.setItem('movieIds', JSON.stringify(movieIds)); // сохраняем обновленный массив в localStorage
+        localStorage.setItem('movieIds', JSON.stringify(movieIds));
       }
 
-      // localStorage.removeItem('movieId', id);
-      upcomingBtn.textContent = "Add to my library";
+      upcomingBtn.textContent = 'Add to my library';
       console.log('Movie ID removed to localStorage:', id);
     }
   });
