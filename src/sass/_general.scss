@@ -5,9 +5,40 @@
 --background-color-one: #282828;
 --background-color-two: #595959;
 --background-color-three: #B7B7B7;
---background-color-three: #F8F8F8;
+--background-color-four: #F8F8F8;
 --background-gradient-one: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
 --background-gradient-two: linear-gradient(141.22deg, #F84119 9.4%, rgba(248, 159, 25, 0.68) 91.91%);
+--transition:  250ms linear;
+--hero-gradient320Lib: linear-gradient(
+    79.49deg,
+    #111111 34.1%,
+    rgba(17, 17, 17, 0) 64.67%
+);
+--hero-gradient768Lib: linear-gradient(
+    77.77deg,
+    #111111 33.58%,
+    rgba(17, 17, 17, 0) 71.57%
+);
+--hero-gradient1280Lib: linear-gradient(
+    79.39deg,
+    #111111 32.37%,
+    rgba(17, 17, 17, 0) 72.02%
+);
+--hero-gradient320Home: linear-gradient(
+    86.77deg,
+    #111111 30.38%,
+    rgba(17, 17, 17, 0) 65.61%
+);
+--hero-gradient768Home: linear-gradient(
+    82.55deg,
+    #111111 39.6%,
+    rgba(17, 17, 17, 0) 72.95%
+);
+--hero-gradient1280Home: linear-gradient(
+    83.16deg,
+    #111111 36.85%,
+    rgba(17, 17, 17, 0) 60.05%
+);
 }
 
 body{
@@ -31,6 +62,7 @@ body{
 .container {
     padding-left: 20px;
     padding-right: 20px;
+    width: 280px;
 }
 
 .card-film {
@@ -43,6 +75,8 @@ background: linear-gradient(180deg, rgba(0, 0, 0, 0) 63.48%, rgba(0, 0, 0, 0.9) 
   .container {
     padding-left: 20px;
     padding-right: 20px;
+    width: 704px;
+
 }  
 .card-film {
     width: 224px;
@@ -50,13 +84,22 @@ height: 325px;
 }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 1440px){
   .container {
     padding-left: 32px;
     padding-right: 32px;
+    width: 1216px;
 } 
 .card-film {
     width: 394px;
 height: 574px;
 } 
+
+.light-theme {
+    background-color: #F5F5F5;
+}
+
+.light-theme .color {
+    color: #595959;
+}
 }

@@ -1,0 +1,261 @@
+.month {
+  max-width: 320px;
+  padding-top: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .month {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 44px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .month {
+    max-width: 1280px;
+    padding-top: 60px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .upcoming-container {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .upcoming-container-about {
+    display: block;
+    margin-left: 16px;
+  }
+}
+
+.upcom-img {
+  width: 280px;
+  height: 402px;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .upcom-img {
+    width: 704px;
+    height: 400px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .upcom-img {
+    width: 805px;
+    height: 458px;
+    object-fit: cover;
+  }
+}
+
+.month-trend-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 24px;
+
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .month-trend-title {
+    font-size: 28px;
+    line-height: 1.18;
+  }
+}
+
+.upcom-about-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.upcom-movie-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-top: 24px;
+  margin-bottom: 20px;
+
+  color: #ffffff;
+}
+
+@media screen and (min-width: 1280px) {
+  .upcom-movie-title {
+    margin-top: 0;
+    margin-bottom: 28px;
+    font-size: 32px;
+    line-height: 1.19;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .upcom-movie-title {
+    font-size: 28px;
+    line-height: 1.18;
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
+}
+
+.upcom-movie-subtitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  margin-top: 0;
+  margin-bottom: 12px;
+
+  color: #b7b7b7;
+}
+
+.upcom-movie-about-title {  
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  margin-top: 8px;
+  margin-bottom: 0;
+
+  color: #b7b7b7;
+}
+
+.upcoming-list {
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .upcoming-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.upcoming-list-item {
+  display: flex;
+  list-style: none;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .upcoming-list-item:nth-child(1) {
+    margin-right: 131px;
+  }
+  .upcoming-list-item:nth-child(3) {
+    margin-right: 115px;
+  }
+}
+
+.upcom-about-box {
+  display: block;
+}
+
+.upcom-about-box-api {
+  display: block;
+  margin-left: 57px;
+}
+
+@media screen and (min-width: 768px) {
+  .upcom-about-box-api {
+    margin-left: 0;
+  }
+}
+
+.upcom-release-date {  
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  margin-top: 0;
+  margin-bottom: 12px;
+  margin-left: 57px;
+
+  color: #f87719;
+}
+
+.upcom-vote {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  margin-top: 0;
+  margin-bottom: 12px;
+  margin-left: 61px;
+
+  color: #111111;
+}
+
+.vote-span {
+  background-color: #ffffff;
+  padding: 1px 4px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.slash {
+  color: #f8f8f8;
+}
+
+.upcom-popularity {  
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  margin-top: 0;
+  margin-bottom: 12px;
+  margin-left: 76px;
+  width: 100px;
+
+  color: #ffffff;
+}
+
+.upcom-genre { 
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.19;
+  margin-top: 0;
+  margin-left: 107px;
+
+  color: #ffffff;
+}
+
+.upcom-movie-about { 
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.43;
+  margin-top: 16px;
+  margin-bottom: 20px;
+
+  color: #f8f8f8;
+}
+
+.upcom-btn {
+  background-image: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  border-radius: 74px;
+  text-align: center;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  border: none;
+
+  color: #111111;
+}
+
+// .light-theme {
+//   color: #111111;
+// }
+
+// .light-theme .upcom-movie-about {
+//   color: #282828;;
+// }
