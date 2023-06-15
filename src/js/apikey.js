@@ -4,14 +4,13 @@ export async function libraryMovieQuery(localStorageId) {
   try {
     // const response = await api.get(
     //   `/movie/${localStorageId}?api_key=7f4ba582d55c3d33bf97672c5d45e075`
-     const promises = localStorageId.map(id =>
+    const promises = localStorageId.map(id =>
       api.get(`/movie/${id}?api_key=7f4ba582d55c3d33bf97672c5d45e075`)
     );
     const responses = await Promise.all(promises);
     const data = responses.map(response => response.data);
     return data;
     // return response.data;
-
   } catch (err) {
     console.log(err);
   }
