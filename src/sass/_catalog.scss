@@ -1,0 +1,50 @@
+.catalog {
+  padding-top: 96px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and(min-width: 768px) {
+  .catalog {
+    padding-top: 140px;
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 768px;
+  }
+}
+
+@media screen and(min-width: 1280px) {
+  .catalog {
+    padding-top: 176px;
+    width: 1280px;
+  }
+}
+
+@media screen and(max-width: 767px) {
+  .catalog-container {
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .catalog-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 768px;
+  }
+}
+
+@media screen and(min-width: 1280px) {
+  .catalog-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1280px;
+  }
+}

@@ -30,7 +30,7 @@ export async function upcomingMovieRequest() {
 export async function trendMovieRequest() {
   try {
     const response = await api.get(
-      '/trending/all/day?api_key=7f4ba582d55c3d33bf97672c5d45e075'
+      '/trending/movie/day?api_key=7f4ba582d55c3d33bf97672c5d45e075'
     );
     return response.data;
   } catch (err) {
