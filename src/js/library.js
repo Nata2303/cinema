@@ -109,7 +109,7 @@ function createLibraryMarkup(arr) {
 
 initLibraryFetch();
 
-function convertRatingToPercentage(rating) {
+export function convertRatingToPercentage(rating) {
   // Перетворюємо рейтинг у відсотки
   const percentage = (rating / 10) * 100;
 
