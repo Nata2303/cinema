@@ -3,12 +3,15 @@ import { upcomingMovieGenreRequest } from './apikey.js';
 
 const dayTrend = document.querySelector('.catalog-js');
 const paginationContainer = document.querySelector('.pagination-container');
-const itemsPerPage = 20;
 let currentPage = 1;
 let trendData;
 let genres;
 
-async function initCatalogFetch() {
+///////////
+
+///////////
+
+export async function initCatalogFetch() {
   try {
     genres = {};
     trendData = await trendMovieRequest(currentPage);
@@ -133,14 +136,14 @@ function addNextPageLink() {
   paginationContainer.appendChild(nextPageLink);
 }
 
-function renderCatalog(arr, genres) {
+export function renderCatalog(arr, genres) {
   dayTrend.innerHTML = ''; // Clear the container
 
   const htmlMarkup = catalogTrendMarkup(arr, genres);
   dayTrend.insertAdjacentHTML('beforeend', htmlMarkup);
 }
 
-function catalogTrendMarkup(arr, genres) {
+export function catalogTrendMarkup(arr, genres) {
   return arr
     .map(movie => {
       const {
@@ -150,10 +153,10 @@ function catalogTrendMarkup(arr, genres) {
         title,
         vote_average,
         name,
-        first_air_date,
+        poster_path,
       } = movie;
 
-      const genreSlice = genre_ids.slice(0, 2);
+      const genreSlice = genre_ids;
 
       const genreNames = genreSlice
         .map(genreId => {
@@ -169,15 +172,20 @@ function catalogTrendMarkup(arr, genres) {
         filmName = title;
       }
 
-      let release;
-      if (!release_date) {
-        release = first_air_date;
+      let release = release_date.slice(0, 4);
+      if (!release || release === '') {
+        release = 'unknown';
+      }
+
+      let poster;
+      if (!backdrop_path) {
+        poster = poster_path;
       } else {
-        release = release_date;
+        poster = backdrop_path;
       }
 
       return `<div class="library-container-item">
-                <div class="library-container-img" style="background-image: url(https://image.tmdb.org/t/p/original${backdrop_path});">
+                <div class="library-container-img" style="background-image: url(https://image.tmdb.org/t/p/original${poster});">
                 <div class="rating-libr rating-library">
                         <div class="rating-body">
                             <div class="rating-active" style="width: ${convertRatingToPercentage(
@@ -194,10 +202,7 @@ function catalogTrendMarkup(arr, genres) {
                         </div>
                     <div class="library-container-about">
                         <h3 class="library-movie-title">${filmName}</h3>     
-                        <span class="library-genre-title">${genreNames}</span><span class="library-genre-title"> | ${release.slice(
-        0,
-        4
-      )}</span>   
+                        <span class="library-genre-title">${genreNames}</span><span class="library-genre-title"> | ${release}</span>   
                     </div> 
             </div>
             </div>

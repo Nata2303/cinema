@@ -1,9 +1,38 @@
 .search-sorry-text {
-    font-size: 16px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
-    padding-top: 100px;
-    padding-bottom: 100px;
+  font-size: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.abc {
+  margin-top: 60px;
+  //   display: flex;
+}
+
+.catalog-form-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalog-input-style {
+  width: 188px;
+  height: 44px;
+  padding-left: 20px;
+  border-radius: 8px;
+  margin-right: 12px;
+  background-color: inherit;
+  border-color: #b7b7b7;
+  color: white;
+}
+
+.search-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
 }
