@@ -1,8 +1,10 @@
 import { trendMovieRequest } from './apikey.js';
 import { upcomingMovieGenreRequest } from './apikey.js';
 
-const dayTrend = document.querySelector('.catalog-js');
-const paginationContainer = document.querySelector('.pagination-container');
+export const dayTrend = document.querySelector('.catalog-js');
+export const paginationContainer = document.querySelector(
+  '.pagination-container'
+);
 let currentPage = 1;
 let trendData;
 let genres;
@@ -21,8 +23,6 @@ export async function initCatalogFetch() {
       genres[genre.id] = genre.name;
     });
 
-    console.log(trendData.results);
-
     renderCatalog(trendData.results, genres);
 
     setupPagination();
@@ -32,7 +32,7 @@ export async function initCatalogFetch() {
 }
 
 function setupPagination() {
-  const totalPages = 25;
+  let totalPages = trendData.total_pages;
   paginationContainer.innerHTML = '';
 
   const maxVisiblePages = 5; // Максимальное количество видимых страниц, включая символ "..."
@@ -97,12 +97,12 @@ function addPageLink(pageNumber) {
   paginationContainer.appendChild(pageDiv);
 }
 
-function formatPageNumber(pageNumber) {
+export function formatPageNumber(pageNumber) {
   // Добавляем ведущий ноль, если номер страницы меньше 10
   return pageNumber < 10 ? `0${pageNumber}` : pageNumber.toString();
 }
 
-function addEllipsis() {
+export function addEllipsis() {
   const ellipsisSpan = document.createElement('span');
   ellipsisSpan.textContent = '...';
   paginationContainer.appendChild(ellipsisSpan);
@@ -178,7 +178,9 @@ export function catalogTrendMarkup(arr, genres) {
       }
 
       let poster;
-      if (!backdrop_path) {
+      if (!backdrop_path && !poster_path) {
+        poster = '/vL5LR6WdxWPjLPFRLe133jXWsh5.jpg';
+      } else if (!backdrop_path) {
         poster = poster_path;
       } else {
         poster = backdrop_path;

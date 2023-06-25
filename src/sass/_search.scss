@@ -35,4 +35,22 @@
   height: 44px;
   border-radius: 50%;
   background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
+  cursor: pointer;
+}
+
+.selectYear {
+  width: 95px;
+  height: 44px;
+  background-color: inherit;
+  color: #b7b7b7;
+  border-radius: 8px;
+  border-color: #b7b7b7;
+  padding-left: 8px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.selectOption {
+  background-color: #1c1c1c;
+  color: #f8f8f8;
 }
