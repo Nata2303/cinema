@@ -6,6 +6,7 @@ import { dayTrend } from './catalog';
 import { paginationContainer } from './catalog';
 import { formatPageNumber } from './catalog';
 import { addEllipsis } from './catalog';
+import { initCatalogFetch } from './catalog';
 
 let genres;
 let currentPage = 1;
@@ -49,6 +50,11 @@ async function handleSearch(evt) {
     genresData.forEach(genre => {
       genres[genre.id] = genre.name;
     });
+
+    if (formEvt.length === 0) {
+      dayTrend.innerHTML = '';
+      initCatalogFetch();
+    }
 
     if (formEvt.length > 1) {
       dayTrend.innerHTML = '';
