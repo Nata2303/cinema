@@ -65,7 +65,9 @@ async function handleSearch(evt) {
 
     if (movieRequest.results.length === 0) {
       paginationVisible = false;
-      dayTrend.innerHTML = `<p class="opsText">OOPS... <br> We are very sorry!<br> You don't have any movies at your library </p>`;
+      dayTrend.innerHTML = `<div class="opsContainer">
+        <p class="opsText">OOPS...<br>We are very sorry!<br>We don't have any results matching your search</p>
+      </div>`;
     } else {
       paginationVisible = true;
     }
