@@ -11,6 +11,7 @@ import { initCatalogFetch } from './catalog';
 let genres;
 let currentPage = 1;
 let movieRequest;
+let paginationVisible = true;
 
 const searchForm = document.querySelector('.catalog-form');
 const filmSearchList = document.querySelector('.js-catalog-search');
@@ -38,6 +39,7 @@ searchForm.addEventListener('submit', handleSearch);
 async function handleSearch(evt) {
   try {
     evt.preventDefault();
+    paginationContainer.innerHTML = '';
 
     genres = {};
 
@@ -62,20 +64,27 @@ async function handleSearch(evt) {
     }
 
     if (movieRequest.results.length === 0) {
+      paginationVisible = false;
       dayTrend.innerHTML = `<p class="opsText">OOPS... <br> We are very sorry!<br> You don't have any movies at your library </p>`;
-      // paginationContainer.classList.remove('show');
     } else {
-      // paginationContainer.classList.add('show');
+      paginationVisible = true;
     }
 
-    const movieTotalPages = movieRequest.total_pages;
-    setupPagination(movieTotalPages);
+    if (!paginationVisible) {
+      paginationContainer.style.display = 'none';
+    } else {
+      paginationContainer.style.display = 'flex';
+    }
+    setupPaginationSearch(movieRequest.total_pages);
   } catch (err) {
     console.log(err);
   }
 }
 
-function setupPagination(movieTotalPages) {
+function setupPaginationSearch(movieTotalPages) {
+  if (!paginationVisible) {
+    return;
+  }
   let totalPages = movieTotalPages;
 
   paginationContainer.innerHTML = '';
@@ -131,11 +140,14 @@ function addPageLink(pageNumber) {
   }
 
   pageLink.addEventListener('click', async function () {
+    if (!paginationVisible) {
+      return;
+    }
     currentPage = pageNumber;
     console.log(currentPage);
     movieRequest = await searchRequest(formEvt, formYear, currentPage);
     renderCatalog(movieRequest.results, genres);
-    setupPagination(movieRequest.total_pages);
+    setupPaginationSearch(movieRequest.total_pages);
   });
 
   pageDiv.appendChild(pageLink);
@@ -151,7 +163,7 @@ function addPrevPageLink() {
     console.log(currentPage);
     const movieRequest = await searchRequest(formEvt, formYear, currentPage);
     renderCatalog(movieRequest.results, genres);
-    setupPagination(movieRequest.total_pages);
+    setupPaginationSearch(movieRequest.total_pages);
   });
   paginationContainer.appendChild(prevPageLink);
 }
@@ -165,7 +177,7 @@ function addNextPageLink() {
     console.log(currentPage);
     const movieRequest = await searchRequest(formEvt, formYear, currentPage);
     renderCatalog(movieRequest.results, genres);
-    setupPagination(movieRequest.total_pages);
+    setupPaginationSearch(movieRequest.total_pages);
   });
   paginationContainer.appendChild(nextPageLink);
 }
