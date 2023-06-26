@@ -44,7 +44,7 @@ async function handleSearch(evt) {
     formEvt = evt.currentTarget.elements.catalogSearchQuery.value;
     formYear = evt.currentTarget.elements.select.value;
 
-    const movieRequest = await searchRequest(formEvt, formYear, currentPage);
+    movieRequest = await searchRequest(formEvt, formYear, currentPage);
     const genresData = await upcomingMovieGenreRequest();
 
     genresData.forEach(genre => {
@@ -59,7 +59,13 @@ async function handleSearch(evt) {
     if (formEvt.length > 1) {
       dayTrend.innerHTML = '';
       renderCatalog(movieRequest.results, genres);
-      console.log(movieRequest.results);
+    }
+
+    if (movieRequest.results.length === 0) {
+      dayTrend.innerHTML = `<p class="opsText">OOPS... <br> We are very sorry!<br> You don't have any movies at your library </p>`;
+      // paginationContainer.classList.remove('show');
+    } else {
+      // paginationContainer.classList.add('show');
     }
 
     const movieTotalPages = movieRequest.total_pages;
@@ -163,3 +169,22 @@ function addNextPageLink() {
   });
   paginationContainer.appendChild(nextPageLink);
 }
+
+// function addWrongBtn() {
+//   dayTrend.innerHTML = `<div><p class="opsText">OOPS... <br> We are very sorry!<br> You don't have any movies at your library </p>
+//   </div>`;
+//   const wrongBtn = document.createElement('button');
+//   wrongBtn.classList.add('wrongBtn');
+//   wrongBtn.textContent = 'Search Movie';
+//   dayTrend.append(wrongBtn);
+//   paginationContainer.style.display = 'none';
+//   searchForm.style.display = 'none';
+
+//   wrongBtn.addEventListener('click', () => {
+//     searchForm.reset();
+//     initCatalogFetch();
+//     handleSearch();
+//     paginationContainer.style.display = 'flex';
+//     searchForm.style.display = 'flex';
+//   });
+// }
