@@ -1,4 +1,4 @@
-import { api } from './apikey';
+//import { api } from './apikey';
 
 export function renderModalFilmMarkup(data) {
   return `
