@@ -1,4 +1,4 @@
-import { libraryMovieQuery, api } from './apikey';
+import { libraryMovieQuery } from './apikey';
 import * as basicLightbox from 'basiclightbox';
 import Notiflix from 'notiflix';
 
