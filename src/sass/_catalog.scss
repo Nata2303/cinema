@@ -1,5 +1,5 @@
 .catalog {
-  padding-top: 96px;
+  padding-top: 48px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 20px;
@@ -8,7 +8,7 @@
 
 @media screen and(min-width: 768px) {
   .catalog {
-    padding-top: 140px;
+    padding-top: 80px;
     padding-left: 32px;
     padding-right: 32px;
     width: 768px;
@@ -17,7 +17,7 @@
 
 @media screen and(min-width: 1280px) {
   .catalog {
-    padding-top: 176px;
+    padding-top: 120px;
     width: 1280px;
   }
 }
@@ -112,4 +112,12 @@
 
 .catalog-pagination-link.active {
   color: white;
+}
+
+.show {
+  display: flex;
+}
+
+.hidden {
+  display: none;
 }

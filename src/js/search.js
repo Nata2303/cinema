@@ -6,10 +6,12 @@ import { dayTrend } from './catalog';
 import { paginationContainer } from './catalog';
 import { formatPageNumber } from './catalog';
 import { addEllipsis } from './catalog';
+import { initCatalogFetch } from './catalog';
 
 let genres;
 let currentPage = 1;
 let movieRequest;
+let paginationVisible = true;
 
 const searchForm = document.querySelector('.catalog-form');
 const filmSearchList = document.querySelector('.js-catalog-search');
@@ -37,33 +39,54 @@ searchForm.addEventListener('submit', handleSearch);
 async function handleSearch(evt) {
   try {
     evt.preventDefault();
+    paginationContainer.innerHTML = '';
 
     genres = {};
 
     formEvt = evt.currentTarget.elements.catalogSearchQuery.value;
     formYear = evt.currentTarget.elements.select.value;
 
-    const movieRequest = await searchRequest(formEvt, formYear, currentPage);
+    movieRequest = await searchRequest(formEvt, formYear, currentPage);
     const genresData = await upcomingMovieGenreRequest();
 
     genresData.forEach(genre => {
       genres[genre.id] = genre.name;
     });
 
+    if (formEvt.length === 0) {
+      dayTrend.innerHTML = '';
+      initCatalogFetch();
+    }
+
     if (formEvt.length > 1) {
       dayTrend.innerHTML = '';
       renderCatalog(movieRequest.results, genres);
-      console.log(movieRequest.results);
     }
 
-    const movieTotalPages = movieRequest.total_pages;
-    setupPagination(movieTotalPages);
+    if (movieRequest.results.length === 0) {
+      paginationVisible = false;
+      dayTrend.innerHTML = `<div class="opsContainer">
+        <p class="opsText">OOPS...<br>We are very sorry!<br>We don't have any results matching your search</p>
+      </div>`;
+    } else {
+      paginationVisible = true;
+    }
+
+    if (!paginationVisible) {
+      paginationContainer.style.display = 'none';
+    } else {
+      paginationContainer.style.display = 'flex';
+    }
+    setupPaginationSearch(movieRequest.total_pages);
   } catch (err) {
     console.log(err);
   }
 }
 
-function setupPagination(movieTotalPages) {
+function setupPaginationSearch(movieTotalPages) {
+  if (!paginationVisible) {
+    return;
+  }
   let totalPages = movieTotalPages;
 
   paginationContainer.innerHTML = '';
@@ -119,11 +142,14 @@ function addPageLink(pageNumber) {
   }
 
   pageLink.addEventListener('click', async function () {
+    if (!paginationVisible) {
+      return;
+    }
     currentPage = pageNumber;
     console.log(currentPage);
     movieRequest = await searchRequest(formEvt, formYear, currentPage);
     renderCatalog(movieRequest.results, genres);
-    setupPagination(movieRequest.total_pages);
+    setupPaginationSearch(movieRequest.total_pages);
   });
 
   pageDiv.appendChild(pageLink);
@@ -139,7 +165,7 @@ function addPrevPageLink() {
     console.log(currentPage);
     const movieRequest = await searchRequest(formEvt, formYear, currentPage);
     renderCatalog(movieRequest.results, genres);
-    setupPagination(movieRequest.total_pages);
+    setupPaginationSearch(movieRequest.total_pages);
   });
   paginationContainer.appendChild(prevPageLink);
 }
@@ -153,7 +179,26 @@ function addNextPageLink() {
     console.log(currentPage);
     const movieRequest = await searchRequest(formEvt, formYear, currentPage);
     renderCatalog(movieRequest.results, genres);
-    setupPagination(movieRequest.total_pages);
+    setupPaginationSearch(movieRequest.total_pages);
   });
   paginationContainer.appendChild(nextPageLink);
 }
+
+// function addWrongBtn() {
+//   dayTrend.innerHTML = `<div><p class="opsText">OOPS... <br> We are very sorry!<br> You don't have any movies at your library </p>
+//   </div>`;
+//   const wrongBtn = document.createElement('button');
+//   wrongBtn.classList.add('wrongBtn');
+//   wrongBtn.textContent = 'Search Movie';
+//   dayTrend.append(wrongBtn);
+//   paginationContainer.style.display = 'none';
+//   searchForm.style.display = 'none';
+
+//   wrongBtn.addEventListener('click', () => {
+//     searchForm.reset();
+//     initCatalogFetch();
+//     handleSearch();
+//     paginationContainer.style.display = 'flex';
+//     searchForm.style.display = 'flex';
+//   });
+// }

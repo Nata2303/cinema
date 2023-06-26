@@ -8,9 +8,27 @@
   padding-bottom: 100px;
 }
 
-.abc {
-  margin-top: 60px;
-  //   display: flex;
+.search-form-container {
+  margin-top: 40px;
+  width: 320px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and(min-width: 768px) {
+  .search-form-container {
+    width: 768px;
+    margin-top: 60px;
+  }
+}
+
+@media screen and(min-width: 1280px) {
+  .search-form-container {
+    width: 1280;
+    margin-top: 80px;
+  }
 }
 
 .catalog-form-style {
@@ -20,34 +38,87 @@
 }
 
 .catalog-input-style {
-  width: 188px;
-  height: 44px;
+  width: 140px;
+  height: 40px;
   padding-left: 20px;
   border-radius: 8px;
   margin-right: 12px;
   background-color: inherit;
   border-color: #b7b7b7;
-  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  color: #b7b7b7;
+}
+
+@media screen and (min-width: 768px) {
+  .catalog-input-style {
+    max-width: 188px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .catalog-input-style {
+    max-width: 315px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-right: 20px;
+  }
 }
 
 .search-btn {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: linear-gradient(145deg, #ffc226 0%, #f84119 100%);
   cursor: pointer;
 }
 
+@media screen and (min-width: 768px) {
+  .search-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .search-btn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
 .selectYear {
-  width: 95px;
-  height: 44px;
+  width: 70px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 500;
   background-color: inherit;
   color: #b7b7b7;
   border-radius: 8px;
   border-color: #b7b7b7;
   padding-left: 8px;
-  margin-right: 16px;
+  margin-right: 10px;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .selectYear {
+    width: 95px;
+    height: 44px;
+    margin-right: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .selectYear {
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-right: 24px;
+  }
 }
 
 .selectOption {
@@ -55,6 +126,14 @@
   color: #f8f8f8;
 }
 
-.svg-search{
-  stroke: black;
+
+.opsContainer {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.opsText {
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.33;
 }
