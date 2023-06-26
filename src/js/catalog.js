@@ -1,14 +1,19 @@
 import { trendMovieRequest } from './apikey.js';
 import { upcomingMovieGenreRequest } from './apikey.js';
 
-const dayTrend = document.querySelector('.catalog-js');
-const paginationContainer = document.querySelector('.pagination-container');
-const itemsPerPage = 20;
+export const dayTrend = document.querySelector('.catalog-js');
+export const paginationContainer = document.querySelector(
+  '.pagination-container'
+);
 let currentPage = 1;
 let trendData;
 let genres;
 
-async function initCatalogFetch() {
+///////////
+
+///////////
+
+export async function initCatalogFetch() {
   try {
     genres = {};
     trendData = await trendMovieRequest(currentPage);
@@ -17,8 +22,6 @@ async function initCatalogFetch() {
     genresData.forEach(genre => {
       genres[genre.id] = genre.name;
     });
-
-    console.log(trendData.results);
 
     renderCatalog(trendData.results, genres);
 
@@ -29,7 +32,7 @@ async function initCatalogFetch() {
 }
 
 function setupPagination() {
-  const totalPages = 25;
+  let totalPages = trendData.total_pages;
   paginationContainer.innerHTML = '';
 
   const maxVisiblePages = 5; // Максимальное количество видимых страниц, включая символ "..."
@@ -94,12 +97,12 @@ function addPageLink(pageNumber) {
   paginationContainer.appendChild(pageDiv);
 }
 
-function formatPageNumber(pageNumber) {
+export function formatPageNumber(pageNumber) {
   // Добавляем ведущий ноль, если номер страницы меньше 10
   return pageNumber < 10 ? `0${pageNumber}` : pageNumber.toString();
 }
 
-function addEllipsis() {
+export function addEllipsis() {
   const ellipsisSpan = document.createElement('span');
   ellipsisSpan.textContent = '...';
   paginationContainer.appendChild(ellipsisSpan);
@@ -133,14 +136,14 @@ function addNextPageLink() {
   paginationContainer.appendChild(nextPageLink);
 }
 
-function renderCatalog(arr, genres) {
+export function renderCatalog(arr, genres) {
   dayTrend.innerHTML = ''; // Clear the container
 
   const htmlMarkup = catalogTrendMarkup(arr, genres);
   dayTrend.insertAdjacentHTML('beforeend', htmlMarkup);
 }
 
-function catalogTrendMarkup(arr, genres) {
+export function catalogTrendMarkup(arr, genres) {
   return arr
     .map(movie => {
       const {
@@ -150,10 +153,10 @@ function catalogTrendMarkup(arr, genres) {
         title,
         vote_average,
         name,
-        first_air_date,
+        poster_path,
       } = movie;
 
-      const genreSlice = genre_ids.slice(0, 2);
+      const genreSlice = genre_ids;
 
       const genreNames = genreSlice
         .map(genreId => {
@@ -169,15 +172,22 @@ function catalogTrendMarkup(arr, genres) {
         filmName = title;
       }
 
-      let release;
-      if (!release_date) {
-        release = first_air_date;
+      let release = release_date.slice(0, 4);
+      if (!release || release === '') {
+        release = 'unknown';
+      }
+
+      let poster;
+      if (!backdrop_path && !poster_path) {
+        poster = '/vL5LR6WdxWPjLPFRLe133jXWsh5.jpg';
+      } else if (!backdrop_path) {
+        poster = poster_path;
       } else {
-        release = release_date;
+        poster = backdrop_path;
       }
 
       return `<div class="library-container-item">
-                <div class="library-container-img" style="background-image: url(https://image.tmdb.org/t/p/original${backdrop_path});">
+                <div class="library-container-img" style="background-image: url(https://image.tmdb.org/t/p/original${poster});">
                 <div class="rating-libr rating-library">
                         <div class="rating-body">
                             <div class="rating-active" style="width: ${convertRatingToPercentage(
@@ -194,10 +204,7 @@ function catalogTrendMarkup(arr, genres) {
                         </div>
                     <div class="library-container-about">
                         <h3 class="library-movie-title">${filmName}</h3>     
-                        <span class="library-genre-title">${genreNames}</span><span class="library-genre-title"> | ${release.slice(
-        0,
-        4
-      )}</span>   
+                        <span class="library-genre-title">${genreNames}</span><span class="library-genre-title"> | ${release}</span>   
                     </div> 
             </div>
             </div>
