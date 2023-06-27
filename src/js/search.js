@@ -16,9 +16,7 @@ let paginationVisible = true;
 const searchForm = document.querySelector('.catalog-form');
 const filmSearchList = document.querySelector('.js-catalog-search');
 const yearSelect = document.querySelector('#js-search-select');
-
-console.log(searchForm);
-console.log(filmSearchList);
+const iconClose = document.querySelector('.js-icon-close');
 
 function createSelect() {
   const currentYear = new Date().getFullYear();
@@ -54,6 +52,7 @@ async function handleSearch(evt) {
     });
 
     if (formEvt.length === 0) {
+      // iconClose.style.display = 'none';
       dayTrend.innerHTML = '';
       initCatalogFetch();
     }

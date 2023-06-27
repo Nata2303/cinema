@@ -137,7 +137,13 @@
   line-height: 1.33;
 }
 
-.svg-search {
-  width: 20px;
-  height: 20px;
+.input-icon {
+  position: relative;
+}
+
+.icon-search {
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  display: none;
 }

@@ -1,12 +1,15 @@
 <div class="search-form-container">
   <form class="catalog-form catalog-form-style">
-    <input
-      type="text"
-      class="catalog-input catalog-input-style"
-      name="catalogSearchQuery"
-      autocomplete="off"
-      placeholder="movie"
-    />
+    <div class="input-icon">
+      <input
+        type="text"
+        class="catalog-input catalog-input-style"
+        name="catalogSearchQuery"
+        autocomplete="off"
+        placeholder="movie"
+      />
+      <img src="./images/x.svg" alt="" class="icon-search js-icon-close" />
+    </div>
     <select name="select" id="js-search-select" class="selectYear">
       <option value="">Year</option>
     </select>
