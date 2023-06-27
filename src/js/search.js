@@ -1,6 +1,7 @@
 import { searchRequest } from './apikey';
 import { upcomingMovieGenreRequest } from './apikey';
 import Notiflix from 'notiflix';
+import { debounce } from 'debounce';
 import { renderCatalog } from './catalog';
 import { dayTrend } from './catalog';
 import { paginationContainer } from './catalog';
@@ -14,25 +15,15 @@ let movieRequest;
 let paginationVisible = true;
 
 const searchForm = document.querySelector('.catalog-form');
-const filmSearchList = document.querySelector('.js-catalog-search');
 const yearSelect = document.querySelector('#js-search-select');
 const iconClose = document.querySelector('.js-icon-close');
+const searchInput = document.querySelector('.catalog-input');
 
-function createSelect() {
-  const currentYear = new Date().getFullYear();
-
-  for (let i = 1940; i <= currentYear; i++) {
-    const option = document.createElement('option');
-    option.classList.add('selectOption');
-    option.value = i;
-    option.text = i;
-    yearSelect.appendChild(option);
-  }
-}
+searchInput.addEventListener('input', debounce(catalogSearchInput, 200));
+iconClose.addEventListener('click', closeClick);
+searchForm.addEventListener('submit', handleSearch);
 
 createSelect();
-
-searchForm.addEventListener('submit', handleSearch);
 
 async function handleSearch(evt) {
   try {
@@ -181,6 +172,34 @@ function addNextPageLink() {
     setupPaginationSearch(movieRequest.total_pages);
   });
   paginationContainer.appendChild(nextPageLink);
+}
+
+function createSelect() {
+  const currentYear = new Date().getFullYear();
+
+  for (let i = 1940; i <= currentYear; i++) {
+    const option = document.createElement('option');
+    option.classList.add('selectOption');
+    option.value = i;
+    option.text = i;
+    yearSelect.appendChild(option);
+  }
+}
+
+function closeClick() {
+  searchForm.reset();
+  iconClose.style.display = 'none';
+}
+
+function catalogSearchInput(evt) {
+  evt.preventDefault();
+  let input = evt.target.value.trim();
+
+  if (input.length > 0) {
+    iconClose.style.display = 'flex';
+  } else {
+    iconClose.style.display = 'none';
+  }
 }
 
 // function addWrongBtn() {
