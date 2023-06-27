@@ -126,7 +126,6 @@
   color: #f8f8f8;
 }
 
-
 .opsContainer {
   margin-right: auto;
   margin-left: auto;
@@ -136,4 +135,28 @@
   text-align: center;
   font-size: 24px;
   line-height: 1.33;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.icon-search {
+  position: absolute;
+  right: 20px;
+  top: 11px;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .icon-search {
+    top: 15px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .icon-search {
+    top: 15px;
+    right: 35px;
+  }
 }
