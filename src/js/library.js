@@ -1,33 +1,22 @@
 import { libraryMovieQuery } from './apikey';
+import { upcomingMovieGenreRequest } from './apikey';
 
 const libraryBox = document.querySelector('.library-js-list');
+const selectGenre = document.querySelector('#js-library-select');
 const localStorageId = JSON.parse(localStorage.getItem('movieIds'));
+
 let localStorageArr = [];
 let currentIndex = 0;
 
-function serviceArrPagination(arr) {
-  if (!arr) {
-    return;
-  }
-
-  while (arr.length > 0) {
-    if (
-      localStorageArr.length === 0 ||
-      localStorageArr[localStorageArr.length - 1].length === 9
-    ) {
-      localStorageArr.push([]);
-    }
-    localStorageArr[localStorageArr.length - 1].push(arr.shift());
-  }
+function getGenres(genres) {
+  genres.forEach(genre => {
+    const optionElem = document.createElement('option');
+    optionElem.value = genre.name;
+    optionElem.textContent = genre.name;
+    optionElem.classList.add('optionSelect');
+    selectGenre.append(optionElem);
+  });
 }
-
-function btnMarkup() {
-  if (localStorageArr.length > 1) {
-    return `<button type="button" class="loadMore loadMoreStyle">Load more</button>`;
-  } else {
-  }
-}
-
 serviceArrPagination(localStorageId);
 
 async function initLibraryFetch() {
@@ -37,17 +26,46 @@ async function initLibraryFetch() {
     }
     const currentArray = localStorageArr[currentIndex];
     const data = await libraryMovieQuery(currentArray);
+    const libraryGenres = await upcomingMovieGenreRequest();
+
+    getGenres(libraryGenres);
+
+    selectGenre.addEventListener('change', evt => {
+      const selectedGenre = evt.target.value;
+
+      if (selectedGenre === 'Genre') {
+        libraryBox.innerHTML = '';
+        libraryBox.insertAdjacentHTML('beforeend', createLibraryMarkup(data));
+
+        if (currentIndex < localStorageArr.length) {
+          libraryBox.insertAdjacentHTML('beforeend', btnMarkup());
+          servicePagination();
+        }
+      } else {
+        const filteredMovies = data.filter(movie => {
+          const genreOption = movie.genres.some(
+            genre => genre.name === selectedGenre
+          );
+          console.log(selectedGenre);
+          return genreOption;
+        });
+        libraryBox.innerHTML = '';
+        libraryBox.insertAdjacentHTML(
+          'beforeend',
+          createLibraryMarkup(filteredMovies)
+        );
+      }
+    });
 
     currentIndex++;
 
     libraryBox.insertAdjacentHTML('beforeend', createLibraryMarkup(data));
-    console.log(currentIndex);
 
     if (currentIndex < localStorageArr.length) {
       libraryBox.insertAdjacentHTML('beforeend', btnMarkup());
     }
     servicePagination();
-    console.log();
+    console.log(data);
   } catch (err) {
     console.log(err);
   }
@@ -56,7 +74,6 @@ async function initLibraryFetch() {
 function servicePagination() {
   const libraryBtn = document.querySelector('.loadMore');
   const libraryMoreButtons = document.querySelectorAll('.loadMore');
-  console.log(localStorageArr.length);
 
   if (!libraryBtn) {
     return;
@@ -117,4 +134,27 @@ export function convertRatingToPercentage(rating) {
   const roundedPercentage = Math.round(percentage * 100) / 100;
 
   return roundedPercentage;
+}
+
+function btnMarkup() {
+  if (localStorageArr.length > 1) {
+    return `<button type="button" class="loadMore loadMoreStyle">Load more</button>`;
+  } else {
+  }
+}
+
+function serviceArrPagination(arr) {
+  if (!arr) {
+    return;
+  }
+
+  while (arr.length > 0) {
+    if (
+      localStorageArr.length === 0 ||
+      localStorageArr[localStorageArr.length - 1].length === 9
+    ) {
+      localStorageArr.push([]);
+    }
+    localStorageArr[localStorageArr.length - 1].push(arr.shift());
+  }
 }

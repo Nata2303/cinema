@@ -1,5 +1,5 @@
 .library {
-  padding-top: 96px;
+  padding-top: 40px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 20px;
@@ -8,7 +8,7 @@
 
 @media screen and(min-width: 768px) {
   .library {
-    padding-top: 140px;
+    padding-top: 60px;
     padding-left: 32px;
     padding-right: 32px;
     width: 768px;
@@ -17,7 +17,7 @@
 
 @media screen and(min-width: 1280px) {
   .library {
-    padding-top: 176px;
+    padding-top: 80px;
     width: 1280px;
   }
 }
@@ -134,7 +134,7 @@
   }
 }
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) {
   .loadMoreStyle {
     font-size: 18px;
     line-height: 1.55;
@@ -149,3 +149,49 @@
   cursor: pointer;
 }
 
+.genre-contatiner {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.selectLibrary {
+  width: 173px;
+  height: 40px;
+  margin-bottom: 16px;
+  padding-left: 16px;
+  border-radius: 8px;
+
+  background-color: inherit;
+  color: #b7b7b7;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+  .selectLibrary {
+    width: 143px;
+    height: 44px;
+    margin-bottom: 36px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .selectLibrary {
+    width: 204px;
+    height: 48px;
+    margin-bottom: 47px;
+  }
+}
+
+.optionSelect {
+  padding-left: 20px;
+  background-color: #1c1c1c;
+  color: #f8f8f8;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.42;
+}
+
+.optionSelect:hover {
+  // background-color: orange;
+}

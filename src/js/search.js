@@ -68,6 +68,7 @@ async function handleSearch(evt) {
       paginationContainer.style.display = 'flex';
     }
     setupPaginationSearch(movieRequest.total_pages);
+    console.log(genres);
   } catch (err) {
     console.log(err);
   }
