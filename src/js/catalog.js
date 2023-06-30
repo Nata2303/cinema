@@ -19,6 +19,7 @@ export async function initCatalogFetch() {
     trendData = await trendMovieRequest(currentPage);
     const genresData = await upcomingMovieGenreRequest();
 
+    console.log(genresData);
     genresData.forEach(genre => {
       genres[genre.id] = genre.name;
     });
@@ -26,6 +27,7 @@ export async function initCatalogFetch() {
     renderCatalog(trendData.results, genres);
 
     setupPagination();
+    console.log(genres);
   } catch (err) {
     console.log(err);
   }
