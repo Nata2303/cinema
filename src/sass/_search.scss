@@ -44,7 +44,7 @@
   border-radius: 8px;
   margin-right: 12px;
   background-color: inherit;
-  border-color: #b7b7b7;
+  border: 1px solid #fff;
   font-size: 14px;
   font-weight: 500;
   color: #b7b7b7;
@@ -52,14 +52,14 @@
 
 @media screen and (min-width: 768px) {
   .catalog-input-style {
-    max-width: 188px;
+    width: 188px;
     height: 44px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .catalog-input-style {
-    max-width: 315px;
+    width: 315px;
     height: 48px;
     font-size: 16px;
     line-height: 1.5;
@@ -98,7 +98,7 @@
   background-color: inherit;
   color: #b7b7b7;
   border-radius: 8px;
-  border-color: #b7b7b7;
+  border: 1px solid #fff;
   padding-left: 8px;
   margin-right: 10px;
   cursor: pointer;
